@@ -12,7 +12,7 @@ function makeGrid() {
     inputHeight = $('#input_height').val();
     inputWidth = $('#input_width').val();
 
-    table = $('#pixel_canvas');
+    table = document.getElementById('#pixel_canvas');
 
     color = $("#colorPicker");
 
@@ -30,7 +30,8 @@ function makeGrid() {
 
     let colorSelect = function(cell) {
         cell.addEventListener('click', function() {
-            cell.css('background-color', color);
+            cell.style.backgroundColor = color.val();
+           // cell.css('background-color', color);
         });
     }
 
@@ -38,7 +39,6 @@ function makeGrid() {
 
 //When button clicks, grid will be created. 
 
-$("input[type='submit']").on('click', function(evt) {
-    evt.preventDefault();
+$("sizePicker").submit(function(evt) {
     makeGrid();
 });
